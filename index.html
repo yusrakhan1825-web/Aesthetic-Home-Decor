@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic-Home-Decor</title>
+    <!-- Premium Google Fonts for Brand Look -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pastel: #fbf9f6;
+            --brand-dark: #2d221e;
+            --brand-muted: #6e5d59;
+            --accent-warm: #c59b8a;
+            --accent-hover: #b38573;
+            --white: #ffffff;
+            --shadow-soft: 0 12px 40px rgba(45, 34, 30, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-pastel);
+            color: var(--brand-dark);
+            line-height: 1.6;
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background-color: var(--brand-dark);
+            color: #f7f3ed;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Header Section */
+        header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .brand-badge {
+            display: inline-block;
+            background-color: #ebdcd5;
+            color: #7d5e53;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--brand-dark);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        header h1 span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-warm);
+        }
+
+        header p {
+            font-size: 1.15rem;
+            color: var(--brand-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Navigation / Categories Tabs (Visual only for brand value) */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            background: var(--white);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--brand-muted);
+            border: 1px solid #efeae4;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            background: var(--accent-warm);
+            color: var(--white);
+            border-color: var(--accent-warm);
+        }
+
+        /* Product Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1140px;
+            margin: 0 auto 100px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #f3eee8;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(45, 34, 30, 0.08);
+        }
+
+        /* Tag over image */
+        .card-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--brand-dark);
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+
+        .img-container {
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            background-color: #f7f3ed;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card:hover .img-container img {
+            transform: scale(1.04);
+        }
+
+        .card-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--brand-dark);
+            line-height: 1.4;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            color: var(--accent-warm);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: block;
+            text-align: center;
+            background-color: var(--brand-dark);
+            color: var(--white);
+            padding: 14px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-warm);
+        }
+
+        /* Beautiful Disclaimer Footer */
+        footer {
+            background-color: var(--white);
+            border-top: 1px solid #f3eee8;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--brand-dark);
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--brand-muted);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement">✨ Curating the Dreamiest Spaces • Handpicked Finds ✨</div>
+
+    <header>
+        <div class="brand-badge">Amazon Affiliate Lookbook</div>
+        <h1>Aesthetic <span>Home Decor.</span></h1>
+        <p>A curated collection of minimalist, aesthetic, and functional home decor pieces to turn your everyday space into a calm sanctuary.</p>
+    </header>
+
+    <div class="grid">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-tag">Trending</div>
+            <div class="img-container">
+                <img src="./images/lamp.jpg" alt="Pleated Table Lamp">
+            </div>
+            <div class="card-content">
+                <div class="title">Retro Pleated Ceramic Table Lamp</div>
+                <div class="price">$29.97</div>
+                <a href="https://link.amazon/B04uQSvi0" class="btn">View On Amazon</a>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-tag">Minimalist</div>
+            <div class="img-container">
+                <img src="./images/vase.jpg" alt="Ceramic Vase">
+            </div>
+            <div class="card-content">
+                <div class="title">Matte Nordic Ceramic Flower Vase Set</div>
+                <div class="price">$26.09</div>
+                <a href="https://link.amazon/B0330n4EY" class="btn">View On Amazon</a>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-tag">Cozy Vibes</div>
+            <div class="img-container">
+                <img src="./images/candle.jpg" alt="Aesthetic Candle">
+            </div>
+            <div class="card-content">
+                <div class="title">Natural Organic Soy Wax Bubble Candle</div>
+                <div class="price">$6.99</div>
+                <a href="https://link.amazon/B0i82cWvc" class="btn">View On Amazon</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">The Cozy Nest.</div>
+        <p class="footer-text">
+            Important Disclosure: As an Amazon Associate, I earn from qualifying purchases. This means that if you click on a product button and make a purchase on Amazon within 24 hours, I may receive a small tracking commission at no extra cost to you. Thank you for supporting my curation! #ad
+        </p>
+        <!-- Aapki credit line -->
+        <p style="font-size: 0.8rem; margin-top: 25px; color: #a39491; letter-spacing: 1px; font-weight: 500;">
+            Created with 🤍 by Yusra
+        </p>
+    </footer>
+
+</body>
+</html>
